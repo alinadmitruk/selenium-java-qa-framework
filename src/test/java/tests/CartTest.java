@@ -9,6 +9,14 @@ import pages.ProductsPage;
 
 public class CartTest  extends BaseTest {
     @Test
+    public void addToCartTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
+        productsPage.addItemToCart();
+        CartPage cartPage = productsPage.goToCart();
+        Assertions.assertEquals(1, cartPage.getItemsCount());
+    }
+    @Test
     public void cartIsNotEmptyTest() {
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
@@ -22,6 +30,7 @@ public class CartTest  extends BaseTest {
         ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
         productsPage.addItemToCart();
         CartPage cartPage = productsPage.goToCart();
+        Assertions.assertEquals(1, cartPage.getItemsCount());
         cartPage.removeItem();
         Assertions.assertEquals(0, cartPage.getItemsCount());
     }

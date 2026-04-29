@@ -41,13 +41,6 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test
-    public void addToCartTest() {
-        LoginPage loginPage = new LoginPage(driver);
-        ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
-        productsPage.addItemToCart();
-        CartPage cartPage = productsPage.goToCart();
-        Assertions.assertEquals(1, cartPage.getItemsCount());
-    }
+
 }
 
