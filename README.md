@@ -29,7 +29,6 @@ Target site: https://www.saucedemo.com/
 - JUnit 5
 - ChromeDriver
 
-- 
 ##  Project Structure
 
 ```
