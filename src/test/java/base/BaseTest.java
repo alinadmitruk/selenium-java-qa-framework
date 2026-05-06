@@ -39,7 +39,7 @@ public class BaseTest {
         ));
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get(props.getProperty("url"));;
+        driver.get(props.getProperty("url"));
     }
 
     @AfterEach
