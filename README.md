@@ -1,3 +1,4 @@
+[![Selenium Tests](https://github.com/alinadmitruk/selenium-java-qa-framework/actions/workflows/run-tests.yml/badge.svg)](https://github.com/alinadmitruk/selenium-java-qa-framework/actions/workflows/run-tests.yml)
 # Selenium Java QA Automation Framework
 ## SauceDemo UI Testing Project
 
