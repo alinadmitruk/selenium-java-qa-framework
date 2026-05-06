@@ -25,9 +25,13 @@ public class BaseTest {
         }
     }
 
+
     @BeforeEach
     public  void setUp() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-save-password-bubble");
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
