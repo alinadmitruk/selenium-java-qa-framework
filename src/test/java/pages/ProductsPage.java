@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsPage extends BasePage {
-//    WebDriver driver;
-//    WebDriverWait wait;
     private By cartIcon = By.className("shopping_cart_link");
     public ProductsPage(WebDriver driver){
         super(driver);

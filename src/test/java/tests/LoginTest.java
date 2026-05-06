@@ -22,11 +22,9 @@ public class LoginTest extends BaseTest {
     public void validLoginPage() throws Exception {
 
         LoginPage loginPage = new LoginPage(driver);
-        ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
-
+        ProductsPage productsPage = loginPage.login(props.getProperty("username"), props.getProperty("password"));
         String title = productsPage.getProductsTitle();
         Assertions.assertEquals("Products", title);
-        System.out.println("Test login executed");
 
     }
 
@@ -37,9 +35,14 @@ public class LoginTest extends BaseTest {
         loginPage.login("wrong_user", "wrong_sauce");
         String error = loginPage.getErrorMessage();
         Assertions.assertTrue(error.contains("Username and password do not match"));
-        System.out.println("Test invalid login executed");
     }
-
+    @Test
+    public void lockedOutUserTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("locked_out_user", "secret_sauce");
+        String error = loginPage.getErrorMessage();
+        Assertions.assertTrue(error.contains("Sorry, this user has been locked out"));
+    }
 
 
 }

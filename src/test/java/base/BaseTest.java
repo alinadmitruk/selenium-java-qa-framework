@@ -6,11 +6,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
+import java.util.Properties;
 
 public class BaseTest {
 
     protected WebDriver driver;
+    protected static final Properties props = new Properties();
+    static {
+        try (InputStream input = BaseTest.
+                class.getClassLoader().
+                getResourceAsStream("config.properties")) {
+            props.load(input);
+        } catch (IOException e) {
+            throw new RuntimeException("config.properties not found", e);
+        }
+    }
 
     @BeforeEach
     public  void setUp() {
@@ -26,7 +39,7 @@ public class BaseTest {
         ));
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com");
+        driver.get(props.getProperty("url"));;
     }
 
     @AfterEach

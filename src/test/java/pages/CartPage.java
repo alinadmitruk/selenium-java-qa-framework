@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CartPage  extends BasePage {
-//    WebDriver driver;
-//    WebDriverWait wait;
     public CartPage (WebDriver driver){
         super(driver);
     }

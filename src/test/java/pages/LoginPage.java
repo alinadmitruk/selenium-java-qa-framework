@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class LoginPage extends BasePage {
-//    WebDriver driver;
     public LoginPage(WebDriver driver){
         super(driver);
     }
@@ -28,17 +27,4 @@ public class LoginPage extends BasePage {
     public String getErrorMessage(){
         return driver.findElement(errorMessage).getText();
 
-//    private By productsTitle = By.className("title");
-//    public String getProductsTitle(){
-//        return driver.findElement(productsTitle).getText();
-//    }
-//    private By errorMessege = By.cssSelector("[data-test='error']");
-//    public String getErrorMessege(){
-//        return driver.findElement(errorMessege).getText();
-//    }
-//    private By items = By.className("inventory_item_price");
-//    public List<WebElement> getItems(){
-//        return driver.findElements(items);
-//
-//    }
     }}

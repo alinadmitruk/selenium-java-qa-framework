@@ -8,18 +8,11 @@ import pages.LoginPage;
 import pages.ProductsPage;
 
 public class CartTest  extends BaseTest {
-    @Test
-    public void addToCartTest() {
-        LoginPage loginPage = new LoginPage(driver);
-        ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
-        productsPage.addItemToCart();
-        CartPage cartPage = productsPage.goToCart();
-        Assertions.assertEquals(1, cartPage.getItemsCount());
-    }
+
     @Test
     public void cartIsNotEmptyTest() {
         LoginPage loginPage = new LoginPage(driver);
-        ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.login(props.getProperty("username"), props.getProperty("password"));
         productsPage.addItemToCart();
         CartPage cartPage = productsPage.goToCart();
         Assertions.assertTrue(cartPage.isCartNotEmpty());
@@ -27,7 +20,7 @@ public class CartTest  extends BaseTest {
     @Test
     public void removeFromCartTest() {
         LoginPage loginPage = new LoginPage(driver);
-        ProductsPage productsPage = loginPage.login("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.login(props.getProperty("username"), props.getProperty("password"));
         productsPage.addItemToCart();
         CartPage cartPage = productsPage.goToCart();
         Assertions.assertEquals(1, cartPage.getItemsCount());
